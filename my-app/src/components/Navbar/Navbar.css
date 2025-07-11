@@ -1,0 +1,50 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.navbar-container{
+    display:flex;
+    width: 100%;
+    height: 10vh;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 100px;
+    background-color: #FFF;
+}
+
+.navbar-container div{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.navbar-container .navbar-icon{
+    font-size: 24px;
+    color:rgb(60, 60, 241);
+}
+
+.navbar-container h1{
+    font-size: 22px;
+    font-weight: 700;
+}
+
+h5{
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.profile{
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 500;
+    color:#FFF;
+    background-color: rgb(60, 60, 241);
+    border-radius: 50%;
+    cursor: pointer;
+}
