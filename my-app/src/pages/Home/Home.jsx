@@ -21,7 +21,7 @@ const Home = () => {
   useEffect(() => {
     const fetchStoreDetails = async () => {
       try {
-        const response = await axios.get(url+'/api/stores', 
+        const response = await axios.get(url+'/stores/', 
           {
             headers: {
               Authorization: `Bearer ${token}`

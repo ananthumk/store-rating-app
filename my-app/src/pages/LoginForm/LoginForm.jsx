@@ -19,7 +19,7 @@ const LoginForm = () => {
   
   const loginForm = async (e) => {
   e.preventDefault();
-  const urlValue = signUp ? 'auth/register' : 'auth/login';
+  const urlValue = signUp ? '/auth/register' : '/auth/login';
 
   try {
     const response = await axios.post(url + urlValue, loginDetails);

@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { FaRegStar } from "react-icons/fa6";
 import './RatingPopup.css'
 
 const RatingPopup = ({storeDetails, setPopUp}) => { 
@@ -38,7 +37,7 @@ const RatingPopup = ({storeDetails, setPopUp}) => {
         />
 
         <div className="buttons">
-          <button >Cancel</button>
+          <button onClick={() => setPopUp(false)} >Cancel</button>
           <button  disabled={!rating}>Submit Rating</button>
         </div>
       </div>
