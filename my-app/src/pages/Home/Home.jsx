@@ -3,6 +3,7 @@ import { FaStar, FaRegStar  } from "react-icons/fa";
 import { IoLocationOutline, IoSearch  } from "react-icons/io5";
 import { MdOutlineMailOutline } from "react-icons/md";
 import Navbar from '../../components/Navbar/Navbar'
+import RatingPopup from '../../components/RatingPopup/RatingPopup';
 import './Home.css'
 import { AppContext } from '../../context/storeContext'
 import axios from 'axios'
@@ -10,13 +11,17 @@ import axios from 'axios'
 const Home = () => {
   const [stores, setStores] = useState([])
   const [filteredStores, setFilteredStores] = useState([])
+  const [rateStore, setRateStore] = useState({
+    id: '', name: ''
+  })
+  const [popUp, setPopUp] = useState(false)
   const [searchQuery, setSearchQuery] = useState('')
   const token = localStorage.getItem('token')
   const {url} = useContext(AppContext)
   useEffect(() => {
     const fetchStoreDetails = async () => {
       try {
-        const response = await axios.get(url+'stores', 
+        const response = await axios.get(url+'/api/stores', 
           {
             headers: {
               Authorization: `Bearer ${token}`
@@ -44,6 +49,9 @@ const Home = () => {
   
   return (
     <div className='home-page'>
+      {popUp && <RatingPopup storeDetails={rateStore} setPopUp={setPopUp}  />}
+       
+        <div className='home'>
         <Navbar />
         <div className='home-container'>
              <div className='banner-section'>
@@ -74,7 +82,8 @@ const Home = () => {
                          <MdOutlineMailOutline size={20} />
                          {store.email}
                       </div>
-                      <button className='rate-btn'>
+                      <button className='rate-btn' onClick={() => {setPopUp(true)
+                       setRateStore({id: store.id, name: store.name }) }}>
                         <FaRegStar size={18} />
                         Rate Store
                       </button>
@@ -82,6 +91,7 @@ const Home = () => {
                 ))}
              </div>
              </div>
+        </div>
         </div>
     </div>
   )

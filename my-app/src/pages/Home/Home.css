@@ -1,4 +1,4 @@
-.home-page{
+.home{
     display: flex;
     flex-direction: column;
     background-color: rgb(238, 238, 245);
@@ -159,4 +159,5 @@
     border: none;
     outline: none;
     border-radius: 6px;
+    cursor: pointer;
 }
